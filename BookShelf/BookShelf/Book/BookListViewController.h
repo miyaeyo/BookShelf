@@ -7,9 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Tab.h"
 
 
 @interface BookListViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+
+
+- (void)setTab:(Tab *)tab;
 
 
 @end

@@ -8,6 +8,8 @@
 
 #import "TabBarViewController.h"
 #import "Fetchable.h"
+#import "BookListViewController.h"
+#import "SearchBookListViewController.h"
 
 
 @implementation TabBarViewController
@@ -40,6 +42,13 @@
 }
 
 
+- (void)searchTextDidEndEditing:(NSNotification *)notification
+{
+    NSString *query = [notification object];
+    [mDataController searchWithQuery:query];
+}
+
+
 #pragma mark - delegate
 
 
@@ -50,9 +59,10 @@
 }
 
 
-- (void)tabBarDataController:(TabBarDataController *)dataController didSelectTab:(Tab *)tab
+- (void)tabBarDataController:(TabBarDataController *)dataController didFinishFetchWithTab:(Tab *)tab
 {
-    
+    BookListViewController *listViewController = [[[self tabBarController] viewControllers] objectAtIndex: [tab category]];
+    [listViewController setTab:tab];
 }
 
 #pragma mark - private
@@ -68,6 +78,11 @@
 {
     mDataController = [[TabBarDataController alloc] init];
     [mDataController setDelegate:self];
+}
+
+- (void)setupNotifications
+{
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(searchTextDidEndEditing:) name:SearchBarTextDidEndEditing object:nil];
 }
 
 @end

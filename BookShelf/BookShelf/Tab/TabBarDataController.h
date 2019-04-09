@@ -14,7 +14,7 @@
 @protocol TabBarDataControllerDelegate
 
 
-- (void)tabBarDataController:(TabBarDataController *)dataController didSelectTab:(Tab *)tab;
+- (void)tabBarDataController:(TabBarDataController *)dataController didFinishFetchWithTab:(Tab *)tab;
 
 
 @end
@@ -25,8 +25,9 @@
 
 @property (nonatomic, weak) id<TabBarDataControllerDelegate> delegate;
 
+
 - (void)selectTabWithCategory:(TabCategory)category;
-- (void)searchWithQuary:(NSString *)quary;
+- (void)searchWithQuery:(NSString *)query;
 
 
 @end

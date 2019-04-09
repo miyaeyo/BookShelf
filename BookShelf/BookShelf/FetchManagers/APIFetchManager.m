@@ -57,9 +57,9 @@
     }] resume];
 }
 
-- (void)setSearchQuary:(NSString *)quary
+- (void)setSearchQuery:(NSString *)query
 {
-    mUrlString = [NSString stringWithFormat: @"%@%@", mUrlString, quary];
+    mUrlString = [NSString stringWithFormat: @"%@%@", mUrlString, query];
 }
 
 

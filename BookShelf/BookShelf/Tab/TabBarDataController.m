@@ -39,10 +39,10 @@
 }
 
 
-- (void)searchWithQuary:(NSString *)quary
+- (void)searchWithQuery:(NSString *)query
 {
     APIFetchManager *manager = (APIFetchManager *)mFetchManager;
-    [manager setSearchQuary:quary];
+    [manager setSearchQuery:query];
     [self fetch];
 }
 
@@ -68,25 +68,11 @@
     }
     
     [mFetchManager fetchWithCompletionHandler:^(NSArray *books) {
-        Tab *sTab = [Tab tabWithTitle:[self tabTitle] books:books];
-        [[self delegate] tabBarDataController:self didSelectTab:sTab];
+        Tab *sTab = [Tab tabWithCategory:self->mSelectedCategory books:books];
+        [[self delegate] tabBarDataController:self didFinishFetchWithTab:sTab];
     }];
 }
 
-
-- (NSString *)tabTitle
-{
-    switch (mSelectedCategory) {
-        case TabCategoryNew:
-            return @"New";
-        case TabCategorySearch:
-            return @"Search";
-        case TabCategoryBookmarks:
-            return @"Bookmarks";
-        case TabCategoryHistory:
-            return @"History";
-    }
-}
 
 
 @end

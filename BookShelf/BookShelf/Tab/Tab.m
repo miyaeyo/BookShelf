@@ -10,28 +10,42 @@
 
 @implementation Tab
 {
-    NSString *mTitle;
-    NSArray  *mBooks;
+    TabCategory mCategory;
+    NSString    *mTitle;
+    NSArray     *mBooks;
 }
 
 
+@synthesize category = mCategory;
 @synthesize title = mTitle;
 @synthesize books = mBooks;
 
 
-+ (instancetype)tabWithTitle:(NSString *)title books:(NSArray *)books
++ (instancetype)tabWithCategory:(TabCategory)category books:(NSArray *)books
 {
-    return [[self alloc] initWithTitle:title books:books];
+    return [[self alloc] initWithCategory:category books:books];
 }
 
 
-- (instancetype)initWithTitle:(NSString *)title books:(NSArray *)books
+- (instancetype)initWithCategory:(TabCategory)category books:(NSArray *)books
 {
     self = [super init];
     
     if (self)
     {
-        mTitle = title;
+        mCategory = category;
+        
+        switch (category) {
+            case TabCategoryNew:
+                mTitle = @"New";
+            case TabCategorySearch:
+                mTitle = @"Search";
+            case TabCategoryBookmarks:
+                mTitle = @"Bookmarks";
+            case TabCategoryHistory:
+                mTitle = @"History";
+        }
+        
         mBooks = books;
     }
     

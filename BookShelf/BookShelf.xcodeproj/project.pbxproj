@@ -23,6 +23,7 @@
 		6D11B74F225CF5EA0053F107 /* APIFetchManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D11B74E225CF5EA0053F107 /* APIFetchManager.m */; };
 		6D11B752225CF62B0053F107 /* BookmarkFetchManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D11B751225CF62B0053F107 /* BookmarkFetchManager.m */; };
 		6D11B755225CF6370053F107 /* HistoryFetchManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D11B754225CF6370053F107 /* HistoryFetchManager.m */; };
+		6D11B75C225D07C10053F107 /* SearchBookListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D11B75B225D07C10053F107 /* SearchBookListViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +77,8 @@
 		6D11B753225CF6370053F107 /* HistoryFetchManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HistoryFetchManager.h; sourceTree = "<group>"; };
 		6D11B754225CF6370053F107 /* HistoryFetchManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HistoryFetchManager.m; sourceTree = "<group>"; };
 		6D11B759225CF78D0053F107 /* Fetchable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Fetchable.h; sourceTree = "<group>"; };
+		6D11B75A225D07C10053F107 /* SearchBookListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchBookListViewController.h; sourceTree = "<group>"; };
+		6D11B75B225D07C10053F107 /* SearchBookListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchBookListViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,6 +183,8 @@
 				6D11B74A225CEFB60053F107 /* DetailBook.m */,
 				6D11B704225C87CA0053F107 /* BookListViewController.h */,
 				6D11B705225C87CA0053F107 /* BookListViewController.m */,
+				6D11B75A225D07C10053F107 /* SearchBookListViewController.h */,
+				6D11B75B225D07C10053F107 /* SearchBookListViewController.m */,
 			);
 			path = Book;
 			sourceTree = "<group>";
@@ -329,6 +334,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6D11B74F225CF5EA0053F107 /* APIFetchManager.m in Sources */,
+				6D11B75C225D07C10053F107 /* SearchBookListViewController.m in Sources */,
 				6D11B755225CF6370053F107 /* HistoryFetchManager.m in Sources */,
 				6D11B706225C87CA0053F107 /* BookListViewController.m in Sources */,
 				6D11B735225C97930053F107 /* TabBarViewController.m in Sources */,

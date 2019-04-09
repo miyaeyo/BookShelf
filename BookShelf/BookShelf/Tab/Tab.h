@@ -20,12 +20,12 @@ typedef NS_ENUM(NSInteger, TabCategory)
 
 @interface Tab : NSObject
 
-
+@property (nonatomic, readonly) TabCategory category;
 @property (nonatomic, readonly) NSString    *title;
 @property (nonatomic, readonly) NSArray     *books;
 
 
-+ (instancetype)tabWithTitle:(NSString *)title books:(NSArray *)books;
++ (instancetype)tabWithCategory:(TabCategory)category books:(NSArray *)books;
 
 
 @end
