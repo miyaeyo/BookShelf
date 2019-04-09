@@ -7,8 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TabBarDataController.h"
 
-@interface TabBarViewController : UITabBarController
+
+@interface TabBarViewController : UITabBarController<TabBarDataControllerDelegate>
 
 
 

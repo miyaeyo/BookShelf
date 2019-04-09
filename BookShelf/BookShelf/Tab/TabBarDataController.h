@@ -7,14 +7,26 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Tab.h"
+
+
+@class TabBarDataController;
+@protocol TabBarDataControllerDelegate
+
+
+- (void)tabBarDataController:(TabBarDataController *)dataController didSelectTab:(Tab *)tab;
+
+
+@end
 
 
 @interface TabBarDataController : NSObject
 
 
+@property (nonatomic, weak) id<TabBarDataControllerDelegate> delegate;
 
-+ (instancetype)dataControllerWithTabItems:(NSArray<UITabBarItem *> *)items;
-
+- (void)selectTabWithCategory:(TabCategory)category;
+- (void)searchWithQuary:(NSString *)quary;
 
 
 @end

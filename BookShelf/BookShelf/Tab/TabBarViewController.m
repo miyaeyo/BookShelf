@@ -7,7 +7,7 @@
 //
 
 #import "TabBarViewController.h"
-#import "TabBarDataController.h"
+#import "Fetchable.h"
 
 
 @implementation TabBarViewController
@@ -16,10 +16,22 @@
 }
 
 
+- (instancetype)initWithCoder:(NSCoder *)aDecoder
+{
+    self = [super initWithCoder:aDecoder];
+    
+    if (self)
+    {
+        [self setupDataController];
+    }
+    
+    return self;
+}
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupViews];
-    [self setupDataController];
 }
 
 
@@ -33,22 +45,29 @@
 
 - (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item
 {
-    
+    TabCategory category = (TabCategory)[item tag];
+    [mDataController selectTabWithCategory:category];
 }
 
+
+- (void)tabBarDataController:(TabBarDataController *)dataController didSelectTab:(Tab *)tab
+{
+    
+}
 
 #pragma mark - private
 
 
 - (void)setupViews
 {
-    
+    [mDataController selectTabWithCategory:TabCategoryNew];
 }
 
 
 - (void)setupDataController
 {
-    mDataController = [TabBarDataController dataControllerWithTabItems:[[self tabBar] items]];
+    mDataController = [[TabBarDataController alloc] init];
+    [mDataController setDelegate:self];
 }
 
 @end

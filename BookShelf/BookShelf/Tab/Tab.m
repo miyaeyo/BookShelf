@@ -19,5 +19,23 @@
 @synthesize books = mBooks;
 
 
++ (instancetype)tabWithTitle:(NSString *)title books:(NSArray *)books
+{
+    return [[self alloc] initWithTitle:title books:books];
+}
+
+
+- (instancetype)initWithTitle:(NSString *)title books:(NSArray *)books
+{
+    self = [super init];
+    
+    if (self)
+    {
+        mTitle = title;
+        mBooks = books;
+    }
+    
+    return self;
+}
 
 @end

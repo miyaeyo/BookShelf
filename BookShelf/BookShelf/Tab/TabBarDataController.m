@@ -7,31 +7,85 @@
 //
 
 #import "TabBarDataController.h"
+#import "Book.h"
+#import "Fetchable.h"
+#import "APIFetchManager.h"
+#import "BookMarkFetchManager.h"
+#import "HistoryFetchManager.h"
 
 
 @implementation TabBarDataController
 {
-    NSArray<UITabBarItem *> *mItems;
+    __weak id<TabBarDataControllerDelegate> mDelegate;
+    TabCategory                             mSelectedCategory;
+    id<Fetchable>                           mFetchManager;
+   
 }
 
 
-+ (instancetype)dataControllerWithTabItems:(NSArray<UITabBarItem *> *)items
-{
-    return [[TabBarDataController alloc] initWithTabItems:items];
-    
-}
+@synthesize delegate = mDelegate;
 
 
-- (instancetype)initWithTabItems:(NSArray<UITabBarItem *> *)items
+#pragma mark - public
+
+
+- (void)selectTabWithCategory:(TabCategory)category
 {
-    self = [super init];
-    
-    if (self)
+    mSelectedCategory = category;
+    if (mSelectedCategory != TabCategorySearch)
     {
-        mItems = items;
+        [self fetch];
+    }
+}
+
+
+- (void)searchWithQuary:(NSString *)quary
+{
+    APIFetchManager *manager = (APIFetchManager *)mFetchManager;
+    [manager setSearchQuary:quary];
+    [self fetch];
+}
+
+
+#pragma mark - private
+
+
+- (void)fetch
+{
+    switch (mSelectedCategory) {
+        case TabCategoryNew:
+            mFetchManager = [APIFetchManager managerWithAPIURLString:@"https://api.itbook.store/1.0/new"];
+            break;
+        case TabCategorySearch:
+            mFetchManager = [APIFetchManager managerWithAPIURLString:@"https://api.itbook.store/1.0/search/"];
+            break;
+        case TabCategoryBookmarks:
+            mFetchManager = [[BookmarkFetchManager alloc] init];
+            break;
+        case TabCategoryHistory:
+            mFetchManager = [[HistoryFetchManager alloc] init];
+            break;
     }
     
-    return self;
+    [mFetchManager fetchWithCompletionHandler:^(NSArray *books) {
+        Tab *sTab = [Tab tabWithTitle:[self tabTitle] books:books];
+        [[self delegate] tabBarDataController:self didSelectTab:sTab];
+    }];
+}
+
+
+- (NSString *)tabTitle
+{
+    switch (mSelectedCategory) {
+        case TabCategoryNew:
+            return @"New";
+        case TabCategorySearch:
+            return @"Search";
+        case TabCategoryBookmarks:
+            return @"Bookmarks";
+        case TabCategoryHistory:
+            return @"History";
+    }
 }
 
 

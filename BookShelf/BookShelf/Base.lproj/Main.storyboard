@@ -56,7 +56,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="p1F-By-KPc"/>
                     </view>
-                    <tabBarItem key="tabBarItem" systemItem="search" id="Qfk-GS-PgY"/>
+                    <tabBarItem key="tabBarItem" tag="1" systemItem="search" id="Qfk-GS-PgY"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IFU-7W-19X" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -72,7 +72,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="hKc-dH-EiT"/>
                     </view>
-                    <tabBarItem key="tabBarItem" systemItem="bookmarks" id="1cs-y7-D3c"/>
+                    <tabBarItem key="tabBarItem" tag="2" systemItem="bookmarks" id="1cs-y7-D3c"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zcm-Hj-ShC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -88,7 +88,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="Qpa-B4-B9Q"/>
                     </view>
-                    <tabBarItem key="tabBarItem" systemItem="history" id="ONE-WC-eqZ"/>
+                    <tabBarItem key="tabBarItem" tag="3" systemItem="history" id="ONE-WC-eqZ"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vKq-0K-SS2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

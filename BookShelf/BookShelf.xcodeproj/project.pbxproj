@@ -19,6 +19,10 @@
 		6D11B738225C9DAE0053F107 /* TabBarDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D11B737225C9DAE0053F107 /* TabBarDataController.m */; };
 		6D11B73F225CA5070053F107 /* Tab.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D11B73E225CA5070053F107 /* Tab.m */; };
 		6D11B744225CAA500053F107 /* Book.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D11B743225CAA500053F107 /* Book.m */; };
+		6D11B74B225CEFB60053F107 /* DetailBook.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D11B74A225CEFB60053F107 /* DetailBook.m */; };
+		6D11B74F225CF5EA0053F107 /* APIFetchManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D11B74E225CF5EA0053F107 /* APIFetchManager.m */; };
+		6D11B752225CF62B0053F107 /* BookmarkFetchManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D11B751225CF62B0053F107 /* BookmarkFetchManager.m */; };
+		6D11B755225CF6370053F107 /* HistoryFetchManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D11B754225CF6370053F107 /* HistoryFetchManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +67,15 @@
 		6D11B73E225CA5070053F107 /* Tab.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Tab.m; sourceTree = "<group>"; };
 		6D11B742225CAA500053F107 /* Book.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Book.h; sourceTree = "<group>"; };
 		6D11B743225CAA500053F107 /* Book.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Book.m; sourceTree = "<group>"; };
+		6D11B749225CEFB60053F107 /* DetailBook.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailBook.h; sourceTree = "<group>"; };
+		6D11B74A225CEFB60053F107 /* DetailBook.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailBook.m; sourceTree = "<group>"; };
+		6D11B74D225CF5EA0053F107 /* APIFetchManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APIFetchManager.h; sourceTree = "<group>"; };
+		6D11B74E225CF5EA0053F107 /* APIFetchManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = APIFetchManager.m; sourceTree = "<group>"; };
+		6D11B750225CF62B0053F107 /* BookmarkFetchManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BookmarkFetchManager.h; sourceTree = "<group>"; };
+		6D11B751225CF62B0053F107 /* BookmarkFetchManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BookmarkFetchManager.m; sourceTree = "<group>"; };
+		6D11B753225CF6370053F107 /* HistoryFetchManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HistoryFetchManager.h; sourceTree = "<group>"; };
+		6D11B754225CF6370053F107 /* HistoryFetchManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HistoryFetchManager.m; sourceTree = "<group>"; };
+		6D11B759225CF78D0053F107 /* Fetchable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Fetchable.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +128,7 @@
 			children = (
 				6D11B73C225CA4ED0053F107 /* Tab */,
 				6D11B741225CAA030053F107 /* Book */,
+				6D11B74C225CF5C70053F107 /* FetchManagers */,
 				6D11B701225C87CA0053F107 /* AppDelegate.h */,
 				6D11B702225C87CA0053F107 /* AppDelegate.m */,
 				6D11B707225C87CA0053F107 /* Main.storyboard */,
@@ -162,10 +176,26 @@
 			children = (
 				6D11B742225CAA500053F107 /* Book.h */,
 				6D11B743225CAA500053F107 /* Book.m */,
+				6D11B749225CEFB60053F107 /* DetailBook.h */,
+				6D11B74A225CEFB60053F107 /* DetailBook.m */,
 				6D11B704225C87CA0053F107 /* BookListViewController.h */,
 				6D11B705225C87CA0053F107 /* BookListViewController.m */,
 			);
 			path = Book;
+			sourceTree = "<group>";
+		};
+		6D11B74C225CF5C70053F107 /* FetchManagers */ = {
+			isa = PBXGroup;
+			children = (
+				6D11B759225CF78D0053F107 /* Fetchable.h */,
+				6D11B74D225CF5EA0053F107 /* APIFetchManager.h */,
+				6D11B74E225CF5EA0053F107 /* APIFetchManager.m */,
+				6D11B750225CF62B0053F107 /* BookmarkFetchManager.h */,
+				6D11B751225CF62B0053F107 /* BookmarkFetchManager.m */,
+				6D11B753225CF6370053F107 /* HistoryFetchManager.h */,
+				6D11B754225CF6370053F107 /* HistoryFetchManager.m */,
+			);
+			path = FetchManagers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -298,11 +328,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6D11B74F225CF5EA0053F107 /* APIFetchManager.m in Sources */,
+				6D11B755225CF6370053F107 /* HistoryFetchManager.m in Sources */,
 				6D11B706225C87CA0053F107 /* BookListViewController.m in Sources */,
 				6D11B735225C97930053F107 /* TabBarViewController.m in Sources */,
 				6D11B738225C9DAE0053F107 /* TabBarDataController.m in Sources */,
+				6D11B752225CF62B0053F107 /* BookmarkFetchManager.m in Sources */,
 				6D11B73F225CA5070053F107 /* Tab.m in Sources */,
 				6D11B711225C87CC0053F107 /* main.m in Sources */,
+				6D11B74B225CEFB60053F107 /* DetailBook.m in Sources */,
 				6D11B744225CAA500053F107 /* Book.m in Sources */,
 				6D11B703225C87CA0053F107 /* AppDelegate.m in Sources */,
 			);

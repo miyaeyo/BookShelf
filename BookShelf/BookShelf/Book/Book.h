@@ -12,5 +12,15 @@
 @interface Book : NSObject
 
 
+@property (nonatomic, readonly) NSString    *title;
+@property (nonatomic, readonly) NSString    *subtitle;
+@property (nonatomic, readonly) NSString    *price;
+@property (nonatomic, readonly) NSURL       *imageURL;
+@property (nonatomic, readonly) NSURL       *url;
+@property (nonatomic, readonly) NSString    *isbn13;
+
+
+- (instancetype)initWithInfomation:(NSDictionary *)infomation;
+
 
 @end

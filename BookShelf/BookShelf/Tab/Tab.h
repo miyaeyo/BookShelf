@@ -9,11 +9,23 @@
 #import <Foundation/Foundation.h>
 
 
+typedef NS_ENUM(NSInteger, TabCategory)
+{
+    TabCategoryNew = 0,
+    TabCategorySearch = 1,
+    TabCategoryBookmarks = 2,
+    TabCategoryHistory = 3
+};
+
+
 @interface Tab : NSObject
 
 
 @property (nonatomic, readonly) NSString    *title;
 @property (nonatomic, readonly) NSArray     *books;
+
+
++ (instancetype)tabWithTitle:(NSString *)title books:(NSArray *)books;
 
 
 @end
