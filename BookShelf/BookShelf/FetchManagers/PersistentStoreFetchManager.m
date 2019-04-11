@@ -12,6 +12,7 @@
 @implementation PersistentStoreFetchManager
 {
     PersistentStore *mStore;
+    NSMutableSet    *mBooks;
 }
 
 
@@ -32,6 +33,21 @@
     }
     
     return self;
+}
+
+
+#pragma mark - public
+
+- (void)addBook:(Book *)book
+{
+    [mBooks addObject:book];
+    [mStore saveBooks:[mBooks allObjects]];
+}
+
+- (void)removeBook:(Book *)book
+{
+    [mBooks removeObject:book];
+    [mStore saveBooks:[mBooks allObjects]];
 }
 
 

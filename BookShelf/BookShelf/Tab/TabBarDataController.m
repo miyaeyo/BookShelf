@@ -59,10 +59,10 @@
             mFetchManager = [APIFetchManager managerWithAPIURLString:@"https://api.itbook.store/1.0/search/"];
             break;
         case TabCategoryBookmarks:
-            mFetchManager = [[PersistentStoreFetchManager alloc] init];
+            mFetchManager = [PersistentStoreFetchManager managerWithType:PersistentStoreTypeBookMark];
             break;
         case TabCategoryHistory:
-            mFetchManager = [[PersistentStoreFetchManager alloc] init];
+            mFetchManager = [PersistentStoreFetchManager managerWithType:PersistentStoreTypeHistory];
             break;
     }
     

@@ -6,15 +6,18 @@
 //  Copyright © 2019년 Seungmi Jeong. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 #import "Fetchable.h"
 #import "PersistentStore.h"
+#import "Book.h"
 
 
 @interface PersistentStoreFetchManager : NSObject<Fetchable>
 
 
 + (instancetype)managerWithType:(PersistentStoreType)type;
+- (void)addBook:(Book *)book;
+- (void)removeBook:(Book *)book;
 
 
 @end

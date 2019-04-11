@@ -58,5 +58,15 @@
              @"isbn13"  : mISBN13};
 }
 
+- (BOOL)isEqual:(id)object
+{
+    return ([self hash] == [object hash]);
+}
+
+- (NSUInteger)hash
+{
+    return [mISBN13 hash];
+}
+
 
 @end
