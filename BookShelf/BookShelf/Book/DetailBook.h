@@ -10,12 +10,14 @@
 
 @interface DetailBook : Book
 
+
 @property (nonatomic, readonly) NSString    *authors;
 @property (nonatomic, readonly) NSString    *publisher;
 @property (nonatomic, readonly) NSString    *pages;
 @property (nonatomic, readonly) NSString    *year;
 @property (nonatomic, readonly) NSString    *rating;
 @property (nonatomic, readonly) NSString    *descriptions;
+@property (nonatomic, readonly) BOOL        isBookmarked;
 
 
 @end

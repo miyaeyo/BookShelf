@@ -21,9 +21,9 @@
 		6D11B744225CAA500053F107 /* Book.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D11B743225CAA500053F107 /* Book.m */; };
 		6D11B74B225CEFB60053F107 /* DetailBook.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D11B74A225CEFB60053F107 /* DetailBook.m */; };
 		6D11B74F225CF5EA0053F107 /* APIFetchManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D11B74E225CF5EA0053F107 /* APIFetchManager.m */; };
-		6D11B752225CF62B0053F107 /* BookmarkFetchManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D11B751225CF62B0053F107 /* BookmarkFetchManager.m */; };
-		6D11B755225CF6370053F107 /* HistoryFetchManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D11B754225CF6370053F107 /* HistoryFetchManager.m */; };
+		6D11B752225CF62B0053F107 /* PersistentStoreFetchManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D11B751225CF62B0053F107 /* PersistentStoreFetchManager.m */; };
 		6D11B75C225D07C10053F107 /* SearchBookListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D11B75B225D07C10053F107 /* SearchBookListViewController.m */; };
+		6D11B75F225F74230053F107 /* PersistentStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D11B75E225F74230053F107 /* PersistentStore.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,13 +72,13 @@
 		6D11B74A225CEFB60053F107 /* DetailBook.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailBook.m; sourceTree = "<group>"; };
 		6D11B74D225CF5EA0053F107 /* APIFetchManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APIFetchManager.h; sourceTree = "<group>"; };
 		6D11B74E225CF5EA0053F107 /* APIFetchManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = APIFetchManager.m; sourceTree = "<group>"; };
-		6D11B750225CF62B0053F107 /* BookmarkFetchManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BookmarkFetchManager.h; sourceTree = "<group>"; };
-		6D11B751225CF62B0053F107 /* BookmarkFetchManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BookmarkFetchManager.m; sourceTree = "<group>"; };
-		6D11B753225CF6370053F107 /* HistoryFetchManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HistoryFetchManager.h; sourceTree = "<group>"; };
-		6D11B754225CF6370053F107 /* HistoryFetchManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HistoryFetchManager.m; sourceTree = "<group>"; };
+		6D11B750225CF62B0053F107 /* PersistentStoreFetchManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PersistentStoreFetchManager.h; sourceTree = "<group>"; };
+		6D11B751225CF62B0053F107 /* PersistentStoreFetchManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PersistentStoreFetchManager.m; sourceTree = "<group>"; };
 		6D11B759225CF78D0053F107 /* Fetchable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Fetchable.h; sourceTree = "<group>"; };
 		6D11B75A225D07C10053F107 /* SearchBookListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchBookListViewController.h; sourceTree = "<group>"; };
 		6D11B75B225D07C10053F107 /* SearchBookListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchBookListViewController.m; sourceTree = "<group>"; };
+		6D11B75D225F74230053F107 /* PersistentStore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PersistentStore.h; sourceTree = "<group>"; };
+		6D11B75E225F74230053F107 /* PersistentStore.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PersistentStore.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -195,10 +195,10 @@
 				6D11B759225CF78D0053F107 /* Fetchable.h */,
 				6D11B74D225CF5EA0053F107 /* APIFetchManager.h */,
 				6D11B74E225CF5EA0053F107 /* APIFetchManager.m */,
-				6D11B750225CF62B0053F107 /* BookmarkFetchManager.h */,
-				6D11B751225CF62B0053F107 /* BookmarkFetchManager.m */,
-				6D11B753225CF6370053F107 /* HistoryFetchManager.h */,
-				6D11B754225CF6370053F107 /* HistoryFetchManager.m */,
+				6D11B750225CF62B0053F107 /* PersistentStoreFetchManager.h */,
+				6D11B751225CF62B0053F107 /* PersistentStoreFetchManager.m */,
+				6D11B75D225F74230053F107 /* PersistentStore.h */,
+				6D11B75E225F74230053F107 /* PersistentStore.m */,
 			);
 			path = FetchManagers;
 			sourceTree = "<group>";
@@ -333,13 +333,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6D11B75F225F74230053F107 /* PersistentStore.m in Sources */,
 				6D11B74F225CF5EA0053F107 /* APIFetchManager.m in Sources */,
 				6D11B75C225D07C10053F107 /* SearchBookListViewController.m in Sources */,
-				6D11B755225CF6370053F107 /* HistoryFetchManager.m in Sources */,
 				6D11B706225C87CA0053F107 /* BookListViewController.m in Sources */,
 				6D11B735225C97930053F107 /* TabBarViewController.m in Sources */,
 				6D11B738225C9DAE0053F107 /* TabBarDataController.m in Sources */,
-				6D11B752225CF62B0053F107 /* BookmarkFetchManager.m in Sources */,
+				6D11B752225CF62B0053F107 /* PersistentStoreFetchManager.m in Sources */,
 				6D11B73F225CA5070053F107 /* Tab.m in Sources */,
 				6D11B711225C87CC0053F107 /* main.m in Sources */,
 				6D11B74B225CEFB60053F107 /* DetailBook.m in Sources */,

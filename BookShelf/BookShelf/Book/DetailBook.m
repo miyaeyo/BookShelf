@@ -46,4 +46,19 @@
     
 }
 
+
+- (NSDictionary *)infomation
+{
+    NSMutableDictionary *sDict = [NSMutableDictionary dictionaryWithDictionary:[super infomation]];
+    sDict[@"authors"] = mAuthors;
+    sDict[@"publisher"] = mPublisher;
+    sDict[@"pages"] = mPages;
+    sDict[@"year"] = mYear;
+    sDict[@"rating"] = mRating;
+    sDict[@"desc"] = mDescriptions;
+
+    return [NSDictionary dictionaryWithDictionary:sDict];
+}
+
+
 @end

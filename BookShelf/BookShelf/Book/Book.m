@@ -44,10 +44,19 @@
     }
     
     return self;
-    
+   
 }
 
 
+- (NSDictionary *)infomation
+{
+    return @{@"title"   : mTitle,
+             @"subtitle": mSubtitle,
+             @"price"   : mPrice,
+             @"image"   : [mImageURL absoluteString],
+             @"url"     : [mUrl absoluteString],
+             @"isbn13"  : mISBN13};
+}
 
 
 @end

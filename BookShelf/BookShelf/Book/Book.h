@@ -21,6 +21,7 @@
 
 
 - (instancetype)initWithInfomation:(NSDictionary *)infomation;
+- (NSDictionary *)infomation;
 
 
 @end

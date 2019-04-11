@@ -10,8 +10,7 @@
 #import "Book.h"
 #import "Fetchable.h"
 #import "APIFetchManager.h"
-#import "BookMarkFetchManager.h"
-#import "HistoryFetchManager.h"
+#import "PersistentStoreFetchManager.h"
 
 
 @implementation TabBarDataController
@@ -60,10 +59,10 @@
             mFetchManager = [APIFetchManager managerWithAPIURLString:@"https://api.itbook.store/1.0/search/"];
             break;
         case TabCategoryBookmarks:
-            mFetchManager = [[BookmarkFetchManager alloc] init];
+            mFetchManager = [[PersistentStoreFetchManager alloc] init];
             break;
         case TabCategoryHistory:
-            mFetchManager = [[HistoryFetchManager alloc] init];
+            mFetchManager = [[PersistentStoreFetchManager alloc] init];
             break;
     }
     

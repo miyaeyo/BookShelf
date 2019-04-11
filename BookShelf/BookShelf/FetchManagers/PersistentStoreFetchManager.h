@@ -1,5 +1,5 @@
 //
-//  HistoryFetchManager.h
+//  PersistentStoreFetchManager.h
 //  BookShelf
 //
 //  Created by Seungmi Jeong on 2019. 4. 10..
@@ -8,8 +8,13 @@
 
 #import <Foundation/Foundation.h>
 #import "Fetchable.h"
+#import "PersistentStore.h"
 
 
-@interface HistoryFetchManager : NSObject<Fetchable>
+@interface PersistentStoreFetchManager : NSObject<Fetchable>
+
+
++ (instancetype)managerWithType:(PersistentStoreType)type;
+
 
 @end
