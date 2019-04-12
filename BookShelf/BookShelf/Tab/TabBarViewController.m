@@ -8,7 +8,7 @@
 
 #import "TabBarViewController.h"
 #import "Fetchable.h"
-#import "BookListViewController.h"
+#import "TabSettable.h"
 #import "SearchBookListViewController.h"
 
 
@@ -34,6 +34,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupViews];
+    [self setupNotifications];
 }
 
 
@@ -61,8 +62,8 @@
 
 - (void)tabBarDataController:(TabBarDataController *)dataController didFinishFetchWithTab:(Tab *)tab
 {
-    BookListViewController *listViewController = [[[self tabBarController] viewControllers] objectAtIndex: [tab category]];
-    [listViewController setTab:tab];
+    UIViewController<TabSettable> *viewController = [[self viewControllers] objectAtIndex: [tab category]];
+    [viewController setTab:tab];
 }
 
 #pragma mark - private

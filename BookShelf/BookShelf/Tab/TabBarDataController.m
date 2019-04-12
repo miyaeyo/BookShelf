@@ -33,30 +33,29 @@
     mSelectedCategory = category;
     if (mSelectedCategory != TabCategorySearch)
     {
-        [self fetch];
+        [self fetchWithQuery:nil];
     }
 }
 
 
 - (void)searchWithQuery:(NSString *)query
 {
-    APIFetchManager *manager = (APIFetchManager *)mFetchManager;
-    [manager setSearchQuery:query];
-    [self fetch];
+    [self fetchWithQuery:query];
 }
 
 
 #pragma mark - private
 
 
-- (void)fetch
+- (void)fetchWithQuery:(nullable NSString *)query
 {
+    [mFetchManager cancel];
     switch (mSelectedCategory) {
         case TabCategoryNew:
             mFetchManager = [APIFetchManager managerWithAPIURLString:@"https://api.itbook.store/1.0/new"];
             break;
         case TabCategorySearch:
-            mFetchManager = [APIFetchManager managerWithAPIURLString:@"https://api.itbook.store/1.0/search/"];
+            mFetchManager = [APIFetchManager managerWithAPIURLString: [NSString stringWithFormat:@"https://api.itbook.store/1.0/search/%@", query]];
             break;
         case TabCategoryBookmarks:
             mFetchManager = [PersistentStoreFetchManager managerWithType:PersistentStoreTypeBookMark];

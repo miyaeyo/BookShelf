@@ -54,38 +54,25 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="hx3-BV-gzD">
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="ziU-Pg-IRy">
                                 <rect key="frame" x="0.0" y="20" width="375" height="56"/>
                                 <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <outlet property="delegate" destination="GZX-08-PiK" id="SVN-1h-do0"/>
-                                </connections>
                             </searchBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="hx3-BV-gzD" firstAttribute="leading" secondItem="p1F-By-KPc" secondAttribute="leading" id="KAH-VU-tCG"/>
-                            <constraint firstItem="hx3-BV-gzD" firstAttribute="trailing" secondItem="p1F-By-KPc" secondAttribute="trailing" id="Yoy-Rz-u7Z"/>
-                            <constraint firstItem="hx3-BV-gzD" firstAttribute="top" secondItem="p1F-By-KPc" secondAttribute="top" id="vvN-CK-3Zr"/>
+                            <constraint firstItem="ziU-Pg-IRy" firstAttribute="leading" secondItem="p1F-By-KPc" secondAttribute="leading" id="G2g-gI-hCd"/>
+                            <constraint firstItem="ziU-Pg-IRy" firstAttribute="top" secondItem="p1F-By-KPc" secondAttribute="top" id="dVi-y8-vb9"/>
+                            <constraint firstItem="ziU-Pg-IRy" firstAttribute="trailing" secondItem="p1F-By-KPc" secondAttribute="trailing" id="f9V-WV-SW9"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="p1F-By-KPc"/>
                     </view>
                     <tabBarItem key="tabBarItem" tag="1" systemItem="search" id="Qfk-GS-PgY"/>
                     <connections>
-                        <outlet property="searchBar" destination="hx3-BV-gzD" id="4Qx-2g-Y7n"/>
-                        <outlet property="searchDisplayController" destination="EbO-Jg-9BY" id="T7f-17-ZCM"/>
+                        <outlet property="searchBar" destination="ziU-Pg-IRy" id="gom-4Q-S0s"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IFU-7W-19X" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <searchDisplayController id="EbO-Jg-9BY">
-                    <connections>
-                        <outlet property="delegate" destination="GZX-08-PiK" id="9J2-gU-LWe"/>
-                        <outlet property="searchBar" destination="hx3-BV-gzD" id="EyI-dT-LEE"/>
-                        <outlet property="searchContentsController" destination="GZX-08-PiK" id="P0P-MN-WLf"/>
-                        <outlet property="searchResultsDataSource" destination="GZX-08-PiK" id="k94-TY-kDU"/>
-                        <outlet property="searchResultsDelegate" destination="GZX-08-PiK" id="hKV-bc-XqU"/>
-                    </connections>
-                </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="614" y="-305"/>
         </scene>

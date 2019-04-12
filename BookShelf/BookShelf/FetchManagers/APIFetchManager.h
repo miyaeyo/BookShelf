@@ -14,7 +14,5 @@
 
 +(instancetype)managerWithAPIURLString:(NSString *)urlString;
 
-- (void)setSearchQuery:(NSString *)query;
-
 
 @end

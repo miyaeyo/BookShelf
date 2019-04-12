@@ -33,7 +33,7 @@
     {
         mFileManager = [NSFileManager defaultManager];
         NSString *sApplicationSupport = [NSSearchPathForDirectoriesInDomains(NSApplicationSupportDirectory, NSUserDomainMask, YES) firstObject];
-        mRootURL = [[NSURL URLWithString:sApplicationSupport] URLByAppendingPathComponent:@"BookShelf"];
+        mRootURL = [[NSURL fileURLWithPath:sApplicationSupport] URLByAppendingPathComponent:@"BookShelf"];
         NSString *sPathComponent = (type == PersistentStoreTypeBookMark) ? @"bookmark.json" : @"history.json";
         mFileURL = [mRootURL URLByAppendingPathComponent:sPathComponent];
         [self createFolderIfNotExist:mRootURL];

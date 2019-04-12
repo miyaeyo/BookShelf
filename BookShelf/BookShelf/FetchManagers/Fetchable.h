@@ -13,7 +13,10 @@
 
 @protocol Fetchable
 
+
 - (void)fetchWithCompletionHandler:(void (^)(NSArray *books))completionHandler;
+- (void)cancel;
+
 
 @end
 

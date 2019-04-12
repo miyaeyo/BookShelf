@@ -52,14 +52,15 @@
             [sBooks addObject:sBook];
         }
         
-        completionHandler(sBooks);
-        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            completionHandler(sBooks);
+        });
     }] resume];
 }
 
-- (void)setSearchQuery:(NSString *)query
+- (void)cancel
 {
-    mUrlString = [NSString stringWithFormat: @"%@%@", mUrlString, query];
+    [[NSURLSession sharedSession] invalidateAndCancel];
 }
 
 

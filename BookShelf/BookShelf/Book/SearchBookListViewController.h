@@ -7,13 +7,15 @@
 //
 
 #import "BookListViewController.h"
+#import "TabSettable.h"
 
 
 static const NSNotificationName SearchBarTextDidEndEditing = @"SearchBarTextDidEndEditing";
 
 
-@interface SearchBookListViewController : BookListViewController<UISearchBarDelegate>
+@interface SearchBookListViewController:UIViewController <UISearchBarDelegate, TabSettable, UITableViewDelegate, UITableViewDataSource, BookListViewCellDelegate>
 
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
+
 
 @end

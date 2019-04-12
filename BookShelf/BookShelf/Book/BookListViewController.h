@@ -8,12 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "Tab.h"
+#import "BookListViewCell.h"
+#import "TabSettable.h"
 
 
-@interface BookListViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
-
-
-- (void)setTab:(Tab *)tab;
+@interface BookListViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, BookListViewCellDelegate, TabSettable>
 
 
 @end
