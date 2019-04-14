@@ -9,12 +9,16 @@
 #import <UIKit/UIKit.h>
 #import "Book.h"
 
+
 static NSString *kReuseIdentifier = @"BookListViewCell";
+
 
 @class BookListViewCell;
 @protocol BookListViewCellDelegate
 
+
 - (void)bookListViewCell:(BookListViewCell *)cell shouldOpenLinkWithURL:(NSURL *)url;
+
 
 @end
 

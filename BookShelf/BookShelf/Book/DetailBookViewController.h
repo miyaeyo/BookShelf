@@ -12,6 +12,7 @@
 
 @interface DetailBookViewController : UIViewController
 
+
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *bookImageView;
 @property (weak, nonatomic) IBOutlet UILabel *subtitleLabel;
@@ -22,7 +23,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *ratingLabel;
 @property (weak, nonatomic) IBOutlet UILabel *priceLabel;
 @property (weak, nonatomic) IBOutlet UITextView *descriptionLabel;
-
 @property (weak, nonatomic) IBOutlet UIButton *bookmarkButton;
 
 

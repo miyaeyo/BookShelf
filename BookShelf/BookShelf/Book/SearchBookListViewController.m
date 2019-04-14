@@ -57,15 +57,18 @@
 
 #pragma mark - tab settable
 
+
 - (void)setTab:(Tab *)tab
 {
     [mBookListViewController setTab:tab];
 }
 
+
 - (void)startActivityIndicator
 {
     [mBookListViewController startActivityIndicator];
 }
+
 
 - (void)stopActivityIndicator
 {
@@ -74,6 +77,7 @@
 
 
 #pragma mark - private
+
 
 - (void)setupViews
 {

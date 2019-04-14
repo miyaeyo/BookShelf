@@ -31,15 +31,28 @@
 }
 
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     [self setupViews];
     [self setupNotifications];
 }
 
 
-- (void)didReceiveMemoryWarning {
+- (void)didReceiveMemoryWarning
+{
     [super didReceiveMemoryWarning];
+}
+
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    if ([mDataController currentCategory] == TabCategoryBookmarks)
+    {
+        [mDataController selectTabWithCategory:TabCategoryBookmarks];
+    }
 }
 
 
@@ -75,14 +88,16 @@
     [viewController stopActivityIndicator];
 }
 
+
 #pragma mark - private
 
 
 - (void)setupViews
 {
+    [mDataController selectTabWithCategory:TabCategoryNew];
+    
     UIViewController<TabSettable> *viewController = [[self viewControllers] objectAtIndex: TabCategoryNew];
     [viewController startActivityIndicator];
-    [mDataController selectTabWithCategory:TabCategoryNew];
 }
 
 
@@ -92,9 +107,11 @@
     [mDataController setDelegate:self];
 }
 
+
 - (void)setupNotifications
 {
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(searchTextDidEndEditing:) name:SearchBarTextDidEndEditing object:nil];
 }
+
 
 @end

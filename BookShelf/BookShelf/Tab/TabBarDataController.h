@@ -24,6 +24,7 @@
 
 
 @property (nonatomic, weak) id<TabBarDataControllerDelegate> delegate;
+@property (nonatomic, readonly) TabCategory currentCategory;
 
 
 - (void)selectTabWithCategory:(TabCategory)category;

@@ -16,13 +16,14 @@
 @implementation TabBarDataController
 {
     __weak id<TabBarDataControllerDelegate> mDelegate;
-    TabCategory                             mSelectedCategory;
+    TabCategory                             mCurrentCategory;
     id<Fetchable>                           mFetchManager;
    
 }
 
 
 @synthesize delegate = mDelegate;
+@synthesize currentCategory = mCurrentCategory;
 
 
 #pragma mark - public
@@ -30,8 +31,8 @@
 
 - (void)selectTabWithCategory:(TabCategory)category
 {
-    mSelectedCategory = category;
-    if (mSelectedCategory != TabCategorySearch)
+    mCurrentCategory = category;
+    if (mCurrentCategory != TabCategorySearch)
     {
         [self fetchWithQuery:nil];
     }
@@ -50,7 +51,7 @@
 - (void)fetchWithQuery:(nullable NSString *)query
 {
     [mFetchManager cancel];
-    switch (mSelectedCategory) {
+    switch (mCurrentCategory) {
         case TabCategoryNew:
             mFetchManager = [APIFetchManager managerWithAPIURLString:@"https://api.itbook.store/1.0/new"];
             break;
@@ -66,7 +67,7 @@
     }
     
     [mFetchManager fetchWithCompletionHandler:^(NSArray *books) {
-        Tab *sTab = [Tab tabWithCategory:self->mSelectedCategory books:books];
+        Tab *sTab = [Tab tabWithCategory:self->mCurrentCategory books:books];
         [[self delegate] tabBarDataController:self didFinishFetchWithTab:sTab];
     }];
 }

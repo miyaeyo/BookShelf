@@ -48,16 +48,19 @@
 
 #pragma mark - tabsettable
 
+
 - (void)setTab:(Tab *)tab
 {
     mTab = tab;
     [mTableView reloadData];
 }
 
+
 - (void)startActivityIndicator
 {
     [mIndicatorView startAnimating];
 }
+
 
 - (void)stopActivityIndicator
 {
@@ -67,15 +70,18 @@
 
 # pragma mark - tableview delegate, data source
 
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return 200;
 }
 
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return [[mTab books] count];
 }
+
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -85,6 +91,7 @@
     
     return cell;
 }
+
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -101,6 +108,7 @@
 
 #pragma mark - cell delegate
 
+
 - (void)bookListViewCell:(BookListViewCell *)cell shouldOpenLinkWithURL:(NSURL *)url
 {
     BookWebViewController *webViewController = [[BookWebViewController alloc] init];
@@ -110,6 +118,7 @@
 
 
 #pragma mark - private
+
 
 - (void)setupViews
 {

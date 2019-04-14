@@ -12,7 +12,6 @@
 @interface APIFetchManager : NSObject<Fetchable>
 
 
-
 + (instancetype)managerWithAPIURLString:(NSString *)urlString;
 - (NSURLRequest *)urlRequest;
 

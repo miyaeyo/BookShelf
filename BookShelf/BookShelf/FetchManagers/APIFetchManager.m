@@ -18,10 +18,12 @@
 
 #pragma mark - init
 
+
 +(instancetype)managerWithAPIURLString:(NSString *)urlString
 {
     return [[self alloc] initWithAPIURLString:urlString];
 }
+
 
 - (instancetype)initWithAPIURLString:(NSString *)urlString
 {
@@ -37,6 +39,7 @@
 
 
 #pragma mark - public
+
 
 - (void)fetchWithCompletionHandler:(void (^)(NSArray *books))completionHandler
 {
@@ -58,10 +61,12 @@
     }] resume];
 }
 
+
 - (void)cancel
 {
     [[NSURLSession sharedSession] invalidateAndCancel];
 }
+
 
 - (NSURLRequest *)urlRequest
 {

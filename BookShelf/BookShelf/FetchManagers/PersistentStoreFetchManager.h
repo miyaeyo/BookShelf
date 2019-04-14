@@ -14,6 +14,7 @@
 
 @interface PersistentStoreFetchManager : NSObject<Fetchable>
 
+
 + (instancetype)bookmarkManager;
 + (instancetype)historyManager;
 

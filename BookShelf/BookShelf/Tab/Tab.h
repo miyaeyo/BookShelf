@@ -20,6 +20,7 @@ typedef NS_ENUM(NSInteger, TabCategory)
 
 @interface Tab : NSObject
 
+
 @property (nonatomic, readonly) TabCategory category;
 @property (nonatomic, readonly) NSString    *title;
 @property (nonatomic, readonly) NSArray     *books;

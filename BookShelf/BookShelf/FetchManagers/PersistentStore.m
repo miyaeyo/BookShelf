@@ -20,10 +20,12 @@
 
 #pragma mark - init
 
+
 + (instancetype)storeWithType:(PersistentStoreType)type
 {
     return [[self alloc] initWithType:type];
 }
+
 
 - (instancetype)initWithType:(PersistentStoreType)type
 {
@@ -45,6 +47,7 @@
 
 #pragma mark - public
 
+
 - (void)saveBooks:(NSArray *)books
 {
     NSMutableArray *sInfos = [NSMutableArray array];
@@ -57,6 +60,7 @@
     NSData *sJsonData = [NSJSONSerialization dataWithJSONObject:sDict options:NSJSONWritingPrettyPrinted error:&sError];
     [mFileManager createFileAtPath:[mFileURL path] contents:sJsonData attributes:nil];
 }
+
 
 - (void)loadBooksWithCompletionHandler:(void (^)( NSArray *books))completionHandler
 {
@@ -84,6 +88,7 @@
 
 
 #pragma mark - private
+
 
 - (void)createFolderIfNotExist:(NSURL *)url
 {
