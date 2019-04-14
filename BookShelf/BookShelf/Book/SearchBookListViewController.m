@@ -7,8 +7,6 @@
 //
 
 #import "SearchBookListViewController.h"
-#import "DetailBookViewController.h"
-#import "APIFetchManager+DetailBook.h"
 #import "BookListViewController.h"
 
 

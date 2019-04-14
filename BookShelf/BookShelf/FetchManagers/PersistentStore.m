@@ -53,10 +53,8 @@
     }
     
     NSDictionary *sDict = @{@"books": sInfos};
-    
     NSError *sError;
     NSData *sJsonData = [NSJSONSerialization dataWithJSONObject:sDict options:NSJSONWritingPrettyPrinted error:&sError];
-    NSLog(@"error: %@", [sError localizedDescription]);
     [mFileManager createFileAtPath:[mFileURL path] contents:sJsonData attributes:nil];
 }
 

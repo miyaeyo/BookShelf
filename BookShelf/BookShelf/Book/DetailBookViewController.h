@@ -25,7 +25,8 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *bookmarkButton;
 
-- (void)setDetailBook:(DetailBook *)detailBook;
+
+- (instancetype)initWithDetailBook:(DetailBook *)detailBook;
 
 
 @end

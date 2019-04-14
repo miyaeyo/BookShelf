@@ -18,10 +18,29 @@
 
 #pragma mark - init
 
-+ (instancetype)managerWithType:(PersistentStoreType)type
++ (instancetype)bookmarkManager
 {
-    return [[self alloc] initWithType:type];
+    static PersistentStoreFetchManager *manager = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        manager = [[self alloc] initWithType:PersistentStoreTypeBookMark];
+    });
+    
+    return manager;
 }
+
+
++ (instancetype)historyManager
+{
+    static PersistentStoreFetchManager *manager = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        manager = [[self alloc] initWithType:PersistentStoreTypeHistory];
+    });
+    
+    return manager;
+}
+
 
 - (instancetype)initWithType:(PersistentStoreType)type
 {
@@ -30,7 +49,9 @@
     if (self)
     {
         mStore = [PersistentStore storeWithType:type];
-        mBooks = [NSMutableSet set];
+        [mStore loadBooksWithCompletionHandler:^(NSArray *books) {
+            self->mBooks = [NSMutableSet setWithArray:books];
+        }];
     }
     
     return self;
@@ -51,14 +72,18 @@
     [mStore saveBooks:[mBooks allObjects]];
 }
 
+- (BOOL)isExistBook:(Book *)book
+{
+    return [mBooks member:book];
+}
+
 
 #pragma mark - fetchable
 
 - (void)fetchWithCompletionHandler:(void (^)(NSArray *books))completionHandler
 {
-    [mStore loadBooksWithCompletionHandler:^(NSArray *books) {
-        completionHandler(books);
-    }];
+    NSArray *sBooks = [mBooks allObjects];
+    completionHandler(sBooks);
 }
 
 - (void)cancel

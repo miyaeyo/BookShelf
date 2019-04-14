@@ -9,20 +9,26 @@
 #import "BookListViewController.h"
 #import "APIFetchManager+DetailBook.h"
 #import "DetailBookViewController.h"
+#import "BookWebViewController.h"
+#import "PersistentStoreFetchManager.h"
 
 
 @implementation BookListViewController
 {
-    UITableView             *mTableView;
-    Tab                     *mTab;
-    UIActivityIndicatorView *mIndicatorView;
+    UITableView                 *mTableView;
+    Tab                         *mTab;
+    UIActivityIndicatorView     *mIndicatorView;
+    PersistentStoreFetchManager *mHistoryManager;
+    
 }
 
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self setupViews];
+    [self setupViews];    
+    mHistoryManager = [PersistentStoreFetchManager historyManager];
+
 }
 
 
@@ -82,12 +88,12 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    DetailBookViewController *detailViewController = [[DetailBookViewController alloc] initWithNibName:@"DetailBookViewController" bundle:nil];
     Book *book =[[mTab books] objectAtIndex:[indexPath row]];
     APIFetchManager *fetchManager = [APIFetchManager managerWithAPIURLString:[NSString stringWithFormat:@"https://api.itbook.store/1.0/books/%@", [book isbn13]]];
     
     [fetchManager fetchDetailBookWithCompletionHandler:^(DetailBook *book) {
-        [detailViewController setDetailBook:book];
+        [self->mHistoryManager addBook:book];
+        DetailBookViewController *detailViewController = [[DetailBookViewController alloc] initWithDetailBook:book];
         [self presentViewController:detailViewController animated:NO completion:nil];
     }];
 }
@@ -97,7 +103,9 @@
 
 - (void)bookListViewCell:(BookListViewCell *)cell shouldOpenLinkWithURL:(NSURL *)url
 {
-    
+    BookWebViewController *webViewController = [[BookWebViewController alloc] init];
+    [webViewController loadURL:url];
+    [self presentViewController:webViewController animated:NO completion:nil];
 }
 
 

@@ -14,10 +14,12 @@
 
 @interface PersistentStoreFetchManager : NSObject<Fetchable>
 
++ (instancetype)bookmarkManager;
++ (instancetype)historyManager;
 
-+ (instancetype)managerWithType:(PersistentStoreType)type;
 - (void)addBook:(Book *)book;
 - (void)removeBook:(Book *)book;
+- (BOOL)isExistBook:(Book *)book;
 
 
 @end

@@ -28,8 +28,6 @@
     
     BOOL               mIsBookmarked;
     PersistentStoreFetchManager *mBookmarkManager;
-    PersistentStoreFetchManager *mHistoryManager;
-    
 }
 
 
@@ -46,28 +44,23 @@
 @synthesize descriptionLabel = mDescriptionLabel;
 
 
-- (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (instancetype)initWithDetailBook:(DetailBook *)detailBook
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    self = [super initWithNibName:@"DetailBookViewController" bundle:nil];
     
     if (self)
     {
         [self view];
-        mDetailBook = nil;
-        mIsBookmarked = NO;
-        mBookmarkManager = [PersistentStoreFetchManager managerWithType:PersistentStoreTypeBookMark];
-        mHistoryManager = [PersistentStoreFetchManager managerWithType:PersistentStoreTypeHistory];
+        mBookmarkManager = [PersistentStoreFetchManager bookmarkManager];
+        [self setDetailBook:detailBook];
     }
     
     return self;
 }
 
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    [mHistoryManager addBook:mDetailBook];
 }
 
 - (void)didReceiveMemoryWarning
@@ -78,18 +71,14 @@
 
 - (IBAction)bookmarkButtonTapped:(id)sender {
     mIsBookmarked = !mIsBookmarked;
-    NSString *buttonText = mIsBookmarked ? @"bookmarked" : @"bookmark";
-    UIColor *buttonColor = mIsBookmarked ? [UIColor redColor] : [UIColor blueColor];
-    [mBookmarkButton setTitle:buttonText forState:UIControlStateNormal];
-    [mBookmarkButton setTitleColor:buttonColor forState:UIControlStateNormal];
-    
+    [self updateIsBookmarkedButton];
     if (mIsBookmarked)
     {
         [mBookmarkManager addBook: mDetailBook];
     }
     else
     {
-        [mHistoryManager removeBook:mDetailBook];
+        [mBookmarkManager removeBook:mDetailBook];
     }
 }
 
@@ -113,6 +102,18 @@
     [mRatingLabel setText:[NSString stringWithFormat:@"%@ points", [mDetailBook rating]]];
     [mPriceLabel setText:[NSString stringWithFormat:@"$%@", [mDetailBook price]]];
     [mDescriptionLabel setText:[mDetailBook descriptions]];
+    
+    mIsBookmarked = [mBookmarkManager isExistBook:mDetailBook];
+    [self updateIsBookmarkedButton];
+}
+
+
+- (void)updateIsBookmarkedButton
+{
+    NSString *buttonText = mIsBookmarked ? @"bookmarked" : @"bookmark";
+    UIColor *buttonColor = mIsBookmarked ? [UIColor redColor] : [UIColor blueColor];
+    [mBookmarkButton setTitle:buttonText forState:UIControlStateNormal];
+    [mBookmarkButton setTitleColor:buttonColor forState:UIControlStateNormal];
 }
 
 

@@ -58,14 +58,13 @@
 - (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item
 {
     TabCategory category = (TabCategory)[item tag];
-    [mDataController selectTabWithCategory:category];
-    
     if (category != TabCategorySearch)
     {
         UIViewController<TabSettable> *viewController = [[self viewControllers] objectAtIndex: category];
         [viewController startActivityIndicator];
     }
-   
+    
+    [mDataController selectTabWithCategory:category];
 }
 
 
