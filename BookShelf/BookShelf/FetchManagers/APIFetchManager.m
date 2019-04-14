@@ -63,10 +63,6 @@
     [[NSURLSession sharedSession] invalidateAndCancel];
 }
 
-
-#pragma mark - private
-
-
 - (NSURLRequest *)urlRequest
 {
     NSMutableURLRequest *sRequest = [NSMutableURLRequest requestWithURL: [NSURL URLWithString:mUrlString]];

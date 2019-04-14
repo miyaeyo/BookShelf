@@ -26,6 +26,9 @@
 		6D11B75F225F74230053F107 /* PersistentStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D11B75E225F74230053F107 /* PersistentStore.m */; };
 		6D11B763225F95460053F107 /* BookListViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D11B761225F95460053F107 /* BookListViewCell.m */; };
 		6D11B764225F95460053F107 /* BookListViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D11B762225F95460053F107 /* BookListViewCell.xib */; };
+		6D11B769226101CC0053F107 /* DetailBookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D11B767226101CB0053F107 /* DetailBookViewController.m */; };
+		6D11B76A226101CC0053F107 /* DetailBookViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D11B768226101CC0053F107 /* DetailBookViewController.xib */; };
+		6D11B76D2261099C0053F107 /* APIFetchManager+DetailBook.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D11B76C2261099C0053F107 /* APIFetchManager+DetailBook.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +88,11 @@
 		6D11B761225F95460053F107 /* BookListViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BookListViewCell.m; sourceTree = "<group>"; };
 		6D11B762225F95460053F107 /* BookListViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BookListViewCell.xib; sourceTree = "<group>"; };
 		6D11B7652260E87B0053F107 /* TabSettable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TabSettable.h; sourceTree = "<group>"; };
+		6D11B766226101CB0053F107 /* DetailBookViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailBookViewController.h; sourceTree = "<group>"; };
+		6D11B767226101CB0053F107 /* DetailBookViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailBookViewController.m; sourceTree = "<group>"; };
+		6D11B768226101CC0053F107 /* DetailBookViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailBookViewController.xib; sourceTree = "<group>"; };
+		6D11B76B2261099C0053F107 /* APIFetchManager+DetailBook.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "APIFetchManager+DetailBook.h"; sourceTree = "<group>"; };
+		6D11B76C2261099C0053F107 /* APIFetchManager+DetailBook.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "APIFetchManager+DetailBook.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -188,6 +196,9 @@
 				6D11B743225CAA500053F107 /* Book.m */,
 				6D11B749225CEFB60053F107 /* DetailBook.h */,
 				6D11B74A225CEFB60053F107 /* DetailBook.m */,
+				6D11B766226101CB0053F107 /* DetailBookViewController.h */,
+				6D11B767226101CB0053F107 /* DetailBookViewController.m */,
+				6D11B768226101CC0053F107 /* DetailBookViewController.xib */,
 				6D11B760225F95460053F107 /* BookListViewCell.h */,
 				6D11B761225F95460053F107 /* BookListViewCell.m */,
 				6D11B762225F95460053F107 /* BookListViewCell.xib */,
@@ -205,6 +216,8 @@
 				6D11B759225CF78D0053F107 /* Fetchable.h */,
 				6D11B74D225CF5EA0053F107 /* APIFetchManager.h */,
 				6D11B74E225CF5EA0053F107 /* APIFetchManager.m */,
+				6D11B76B2261099C0053F107 /* APIFetchManager+DetailBook.h */,
+				6D11B76C2261099C0053F107 /* APIFetchManager+DetailBook.m */,
 				6D11B750225CF62B0053F107 /* PersistentStoreFetchManager.h */,
 				6D11B751225CF62B0053F107 /* PersistentStoreFetchManager.m */,
 				6D11B75D225F74230053F107 /* PersistentStore.h */,
@@ -318,6 +331,7 @@
 			files = (
 				6D11B70E225C87CC0053F107 /* LaunchScreen.storyboard in Resources */,
 				6D11B70B225C87CC0053F107 /* Assets.xcassets in Resources */,
+				6D11B76A226101CC0053F107 /* DetailBookViewController.xib in Resources */,
 				6D11B709225C87CA0053F107 /* Main.storyboard in Resources */,
 				6D11B764225F95460053F107 /* BookListViewCell.xib in Resources */,
 			);
@@ -352,11 +366,13 @@
 				6D11B738225C9DAE0053F107 /* TabBarDataController.m in Sources */,
 				6D11B752225CF62B0053F107 /* PersistentStoreFetchManager.m in Sources */,
 				6D11B73F225CA5070053F107 /* Tab.m in Sources */,
+				6D11B769226101CC0053F107 /* DetailBookViewController.m in Sources */,
 				6D11B711225C87CC0053F107 /* main.m in Sources */,
 				6D11B74B225CEFB60053F107 /* DetailBook.m in Sources */,
 				6D11B744225CAA500053F107 /* Book.m in Sources */,
 				6D11B703225C87CA0053F107 /* AppDelegate.m in Sources */,
 				6D11B763225F95460053F107 /* BookListViewCell.m in Sources */,
+				6D11B76D2261099C0053F107 /* APIFetchManager+DetailBook.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

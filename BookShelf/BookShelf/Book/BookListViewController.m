@@ -7,6 +7,8 @@
 //
 
 #import "BookListViewController.h"
+#import "APIFetchManager+DetailBook.h"
+#import "DetailBookViewController.h"
 
 
 @implementation BookListViewController
@@ -84,6 +86,18 @@
     return cell;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    DetailBookViewController *detailViewController = [[DetailBookViewController alloc] initWithNibName:@"DetailBookViewController" bundle:nil];
+    Book *book =[[mTab books] objectAtIndex:[indexPath row]];
+    APIFetchManager *fetchManager = [APIFetchManager managerWithAPIURLString:[NSString stringWithFormat:@"https://api.itbook.store/1.0/books/%@", [book isbn13]]];
+    
+    [fetchManager fetchDetailBookWithCompletionHandler:^(DetailBook *book) {
+        [detailViewController setDetailBook:book];
+        [self presentViewController:detailViewController animated:NO completion:nil];
+    }];
+}
+
 
 #pragma mark - cell delegate
 
@@ -104,6 +118,7 @@
     [mTableView setDataSource:self];
     UINib *nib = [UINib nibWithNibName:kReuseIdentifier bundle:nil];
     [mTableView registerNib:nib forCellReuseIdentifier:kReuseIdentifier];
+    
 }
 
 

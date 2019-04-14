@@ -30,6 +30,7 @@
     if (self)
     {
         mStore = [PersistentStore storeWithType:type];
+        mBooks = [NSMutableSet set];
     }
     
     return self;

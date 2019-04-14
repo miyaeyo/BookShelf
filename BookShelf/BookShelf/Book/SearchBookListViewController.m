@@ -7,11 +7,15 @@
 //
 
 #import "SearchBookListViewController.h"
+#import "DetailBookViewController.h"
+#import "APIFetchManager+DetailBook.h"
 
 
 @implementation SearchBookListViewController
 {
     __weak UISearchBar       *mSearchBar;
+    
+    
     UITableView              *mTableView;
     Tab                      *mTab;
     UIActivityIndicatorView  *mIndicatorView;
@@ -99,6 +103,18 @@
     [cell setDelegate:self];
     
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    DetailBookViewController *detailViewController = [[DetailBookViewController alloc] initWithNibName:@"DetailBookViewController" bundle:nil];
+    Book *book =[[mTab books] objectAtIndex:[indexPath row]];
+    APIFetchManager *fetchManager = [APIFetchManager managerWithAPIURLString:[NSString stringWithFormat:@"https://api.itbook.store/1.0/books/%@", [book isbn13]]];
+    
+    [fetchManager fetchDetailBookWithCompletionHandler:^(DetailBook *book) {
+        [detailViewController setDetailBook:book];
+        [self presentViewController:detailViewController animated:NO completion:nil];
+    }];
 }
 
 

@@ -47,7 +47,7 @@
 
 - (void)saveBooks:(NSArray *)books
 {
-    NSMutableArray *sInfos;
+    NSMutableArray *sInfos = [NSMutableArray array];
     for (Book *sBook in books) {
         [sInfos addObject: [sBook infomation]];
     }
@@ -60,20 +60,28 @@
     [mFileManager createFileAtPath:[mFileURL path] contents:sJsonData attributes:nil];
 }
 
-- (void)loadBooksWithCompletionHandler:(void (^)(NSArray *books))completionHandler
+- (void)loadBooksWithCompletionHandler:(void (^)( NSArray *books))completionHandler
 {
     NSError *sError;
     NSData *sData = [mFileManager contentsAtPath:[mFileURL path]];
-    NSDictionary *sJsonDict = [NSJSONSerialization JSONObjectWithData:sData options:NSJSONReadingMutableContainers error:&sError];
-    NSArray *sBookInfos = [sJsonDict objectForKey:@"books"];
-    NSMutableArray *sBooks = [NSMutableArray array];
-    
-    for (NSDictionary *sBookInfo in sBookInfos) {
-        Book *sBook = [[Book alloc] initWithInfomation:sBookInfo];
-        [sBooks addObject:sBook];
+    if (sData)
+    {
+        NSDictionary *sJsonDict = [NSJSONSerialization JSONObjectWithData:sData options:NSJSONReadingMutableContainers error:&sError];
+        NSArray *sBookInfos = [sJsonDict objectForKey:@"books"];
+        NSMutableArray *sBooks = [NSMutableArray array];
+        
+        for (NSDictionary *sBookInfo in sBookInfos) {
+            Book *sBook = [[Book alloc] initWithInfomation:sBookInfo];
+            [sBooks addObject:sBook];
+        }
+        
+        completionHandler(sBooks);
+    }
+    else
+    {
+        completionHandler([NSArray array]);
     }
     
-    completionHandler(sBooks);
 }
 
 
