@@ -29,7 +29,7 @@
 		6D11B769226101CC0053F107 /* DetailBookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D11B767226101CB0053F107 /* DetailBookViewController.m */; };
 		6D11B76A226101CC0053F107 /* DetailBookViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D11B768226101CC0053F107 /* DetailBookViewController.xib */; };
 		6D11B76D2261099C0053F107 /* APIFetchManager+DetailBook.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D11B76C2261099C0053F107 /* APIFetchManager+DetailBook.m */; };
-		6D11B7712263914C0053F107 /* BookWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D11B76F2263914C0053F107 /* BookWebViewController.m */; };
+		6D11B7752263BBA10053F107 /* BookWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D11B7742263BBA10053F107 /* BookWebViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,8 +94,8 @@
 		6D11B768226101CC0053F107 /* DetailBookViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailBookViewController.xib; sourceTree = "<group>"; };
 		6D11B76B2261099C0053F107 /* APIFetchManager+DetailBook.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "APIFetchManager+DetailBook.h"; sourceTree = "<group>"; };
 		6D11B76C2261099C0053F107 /* APIFetchManager+DetailBook.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "APIFetchManager+DetailBook.m"; sourceTree = "<group>"; };
-		6D11B76E2263914C0053F107 /* BookWebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = BookWebViewController.h; path = BookShelf/BookWebViewController.h; sourceTree = SOURCE_ROOT; };
-		6D11B76F2263914C0053F107 /* BookWebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = BookWebViewController.m; path = BookShelf/BookWebViewController.m; sourceTree = SOURCE_ROOT; };
+		6D11B7732263BBA10053F107 /* BookWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookWebViewController.h; sourceTree = "<group>"; };
+		6D11B7742263BBA10053F107 /* BookWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookWebViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -209,8 +209,8 @@
 				6D11B705225C87CA0053F107 /* BookListViewController.m */,
 				6D11B75A225D07C10053F107 /* SearchBookListViewController.h */,
 				6D11B75B225D07C10053F107 /* SearchBookListViewController.m */,
-				6D11B76E2263914C0053F107 /* BookWebViewController.h */,
-				6D11B76F2263914C0053F107 /* BookWebViewController.m */,
+				6D11B7732263BBA10053F107 /* BookWebViewController.h */,
+				6D11B7742263BBA10053F107 /* BookWebViewController.m */,
 			);
 			path = Book;
 			sourceTree = "<group>";
@@ -373,7 +373,7 @@
 				6D11B73F225CA5070053F107 /* Tab.m in Sources */,
 				6D11B769226101CC0053F107 /* DetailBookViewController.m in Sources */,
 				6D11B711225C87CC0053F107 /* main.m in Sources */,
-				6D11B7712263914C0053F107 /* BookWebViewController.m in Sources */,
+				6D11B7752263BBA10053F107 /* BookWebViewController.m in Sources */,
 				6D11B74B225CEFB60053F107 /* DetailBook.m in Sources */,
 				6D11B744225CAA500053F107 /* Book.m in Sources */,
 				6D11B703225C87CA0053F107 /* AppDelegate.m in Sources */,
