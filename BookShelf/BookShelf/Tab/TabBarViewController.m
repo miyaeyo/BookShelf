@@ -47,6 +47,8 @@
 {
     NSString *query = [notification object];
     [mDataController searchWithQuery:query];
+    UIViewController<TabSettable> *viewController = [[self viewControllers] objectAtIndex: TabCategorySearch];
+    [viewController startActivityIndicator];
 }
 
 
@@ -57,6 +59,13 @@
 {
     TabCategory category = (TabCategory)[item tag];
     [mDataController selectTabWithCategory:category];
+    
+    if (category != TabCategorySearch)
+    {
+        UIViewController<TabSettable> *viewController = [[self viewControllers] objectAtIndex: category];
+        [viewController startActivityIndicator];
+    }
+   
 }
 
 
@@ -64,6 +73,7 @@
 {
     UIViewController<TabSettable> *viewController = [[self viewControllers] objectAtIndex: [tab category]];
     [viewController setTab:tab];
+    [viewController stopActivityIndicator];
 }
 
 #pragma mark - private
@@ -71,6 +81,8 @@
 
 - (void)setupViews
 {
+    UIViewController<TabSettable> *viewController = [[self viewControllers] objectAtIndex: TabCategoryNew];
+    [viewController startActivityIndicator];
     [mDataController selectTabWithCategory:TabCategoryNew];
 }
 

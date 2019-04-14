@@ -15,6 +15,8 @@
 
 
 - (void)setTab:(Tab *)tab;
+- (void)startActivityIndicator;
+- (void)stopActivityIndicator;
 
 
 @end

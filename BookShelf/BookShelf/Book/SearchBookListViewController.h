@@ -13,7 +13,8 @@
 static const NSNotificationName SearchBarTextDidEndEditing = @"SearchBarTextDidEndEditing";
 
 
-@interface SearchBookListViewController:UIViewController <UISearchBarDelegate, TabSettable, UITableViewDelegate, UITableViewDataSource, BookListViewCellDelegate>
+@interface SearchBookListViewController:UIViewController <UISearchBarDelegate, TabSettable>
+
 
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 

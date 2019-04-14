@@ -9,34 +9,17 @@
 #import "SearchBookListViewController.h"
 #import "DetailBookViewController.h"
 #import "APIFetchManager+DetailBook.h"
+#import "BookListViewController.h"
 
 
 @implementation SearchBookListViewController
 {
     __weak UISearchBar       *mSearchBar;
-    
-    
-    UITableView              *mTableView;
-    Tab                      *mTab;
-    UIActivityIndicatorView  *mIndicatorView;
+    BookListViewController   *mBookListViewController;
 }
 
 
 @synthesize searchBar = mSearchBar;
-
-
-- (instancetype)initWithCoder:(NSCoder *)aDecoder
-{
-    self = [super initWithCoder:aDecoder];
-    
-    if (self)
-    {
-        mTableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
-        mIndicatorView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-    }
-    
-    return self;
-}
 
 
 - (void)viewDidLoad
@@ -59,17 +42,16 @@
     CGFloat y = CGRectGetMaxY([mSearchBar frame]);
     CGSize size = [[self view] bounds].size;
     
-    [mTableView setFrame:CGRectMake(0, y, size.width, size.height - y)];
-    [mIndicatorView setFrame:[mTableView bounds]];
+    [[mBookListViewController view] setFrame:CGRectMake(0, y, size.width, size.height - y)];
 }
 
 
 #pragma mark - search bar delegate
 
 
-- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
+{
     [mSearchBar resignFirstResponder];
-    [mIndicatorView startAnimating];
     [[NSNotificationCenter defaultCenter] postNotificationName:SearchBarTextDidEndEditing object:[searchBar text]];
     
 }
@@ -77,52 +59,19 @@
 
 #pragma mark - tab settable
 
-- (void)setTab:(Tab *)tab {
-    mTab = tab;
-    [mIndicatorView stopAnimating];
-    [mTableView reloadData];
+- (void)setTab:(Tab *)tab
+{
+    [mBookListViewController setTab:tab];
 }
 
-
-# pragma mark - tableview delegate, data source
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+- (void)startActivityIndicator
 {
-    return 200;
+    [mBookListViewController startActivityIndicator];
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+- (void)stopActivityIndicator
 {
-    return [[mTab books] count];
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    BookListViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kReuseIdentifier forIndexPath:indexPath];
-    [cell setBook:[[mTab books] objectAtIndex:[indexPath row]]];
-    [cell setDelegate:self];
-    
-    return cell;
-}
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    DetailBookViewController *detailViewController = [[DetailBookViewController alloc] initWithNibName:@"DetailBookViewController" bundle:nil];
-    Book *book =[[mTab books] objectAtIndex:[indexPath row]];
-    APIFetchManager *fetchManager = [APIFetchManager managerWithAPIURLString:[NSString stringWithFormat:@"https://api.itbook.store/1.0/books/%@", [book isbn13]]];
-    
-    [fetchManager fetchDetailBookWithCompletionHandler:^(DetailBook *book) {
-        [detailViewController setDetailBook:book];
-        [self presentViewController:detailViewController animated:NO completion:nil];
-    }];
-}
-
-
-#pragma mark - cell delegate
-
-- (void)bookListViewCell:(BookListViewCell *)cell shouldOpenLinkWithURL:(NSURL *)url
-{
-    
+    [mBookListViewController stopActivityIndicator];
 }
 
 
@@ -132,13 +81,10 @@
 {
     [mSearchBar setDelegate:self];
     
-    [[self view] addSubview:mTableView];
-    [mTableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
-    [mTableView setDelegate:self];
-    [mTableView setDataSource:self];
-    UINib *nib = [UINib nibWithNibName:kReuseIdentifier bundle:nil];
-    [mTableView registerNib:nib forCellReuseIdentifier:kReuseIdentifier];
-    [mTableView addSubview:mIndicatorView];    
+    mBookListViewController = [[BookListViewController alloc] init];
+    [self addChildViewController:mBookListViewController];
+    [[self view] addSubview:[mBookListViewController view]];
+    [mBookListViewController didMoveToParentViewController:self];
 }
 
 

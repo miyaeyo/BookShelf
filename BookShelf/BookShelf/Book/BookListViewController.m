@@ -19,25 +19,10 @@
 }
 
 
-- (instancetype)initWithCoder:(NSCoder *)aDecoder
-{
-    self = [super initWithCoder:aDecoder];
-
-    if (self)
-    {
-        mTableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
-        mIndicatorView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-    }
-
-    return self;
-}
-
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     [self setupViews];
-    [mIndicatorView startAnimating];
 }
 
 
@@ -60,8 +45,17 @@
 - (void)setTab:(Tab *)tab
 {
     mTab = tab;
-    [mIndicatorView stopAnimating];
     [mTableView reloadData];
+}
+
+- (void)startActivityIndicator
+{
+    [mIndicatorView startAnimating];
+}
+
+- (void)stopActivityIndicator
+{
+    [mIndicatorView stopAnimating];
 }
 
 
@@ -111,6 +105,9 @@
 
 - (void)setupViews
 {
+    mTableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
+    mIndicatorView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    
     [mTableView addSubview:mIndicatorView];
     [[self view] addSubview:mTableView];
     [mTableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
